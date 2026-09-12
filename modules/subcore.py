@@ -323,7 +323,7 @@ def inference_bbox(
     confidence: float = 0.3,
     device: str = "",
 ):
-    pred = model(image, conf=confidence, device=device)
+    pred = model(image, conf=confidence, device=device, verbose=False)
 
     bboxes = pred[0].boxes.xyxy.cpu().numpy()
     cv2_image = np.array(image)
@@ -362,7 +362,7 @@ def inference_segm(
     confidence: float = 0.3,
     device: str = "",
 ):
-    pred = model(image, conf=confidence, device=device)
+    pred = model(image, conf=confidence, device=device, verbose=False)
 
     bboxes = pred[0].boxes.xyxy.cpu().numpy()
     n, m = bboxes.shape
